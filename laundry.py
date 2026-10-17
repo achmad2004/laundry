@@ -1,4 +1,5 @@
 import os
+import questionary
 
 start = 1
 while start == 1:
@@ -6,7 +7,19 @@ while start == 1:
     print("Pilih menu : ")
     print("1. Transaksi Laundry")
     print("2. Keluar")
-    userpilih = input("Pilih menu (1/2) : ")
+
+
+
+
+    userpilih = questionary.select(
+    "Pilih menu (1/2) : ",
+    choices=[
+        "1",
+        "2",
+    ]
+    ).ask()
+
+
 
     if userpilih == "2" :
         start = 2
@@ -16,7 +29,18 @@ while start == 1:
 
         print("==== Input Data Pelanggan ====")
         nama = input("Nama Pelanggan       : ")
-        mem = input("Apakah member (Y//N) : ").lower()
+
+
+        mem = questionary.select(
+        "Apakah Member (Y/N) : ",
+        choices=[
+                    "Ya",
+                    "Tidak",
+        ]
+        ).ask()
+        
+
+        
         beratcucian = int(input("Berat Cucian (Kg)    : "))
 
 
